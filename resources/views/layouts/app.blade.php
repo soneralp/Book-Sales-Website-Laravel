@@ -82,7 +82,7 @@
                         </div>
                         <img src="images/cart-1.png" alt="" />
                     </a>
-                    <p><a href="" class="simpleCart_empty">Empty Cart</a></p>
+                    {{--<p><a href="" class="simpleCart_empty">Empty Cart</a></p>--}}
                     <div class="clearfix"> </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                 </form>
             </div>
             <div class="col-md-6 footer-right">
-                <p>© 2015 Luxury Watches. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                <p>© 07/10/2022 | Soner Alp Sayın </p>
             </div>
             <div class="clearfix"></div>
         </div>

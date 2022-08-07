@@ -14,41 +14,44 @@
     <!--start-ckeckout-->
     <div class="ckeckout">
         <div class="container">
-            <div class="ckeck-top heading">
+       {{--     <div class="ckeck-top heading">
                 <h2>Sepetim</h2>
-            </div>
+            </div>--}}
             <div class="ckeckout-top">
                 <div class="cart-items">
-                    <h3>My Shopping Bag (3)</h3>
+                    <h3>Alışveriş Sepetim</h3>
 
                     <div class="in-check">
                         <ul class="unit">
-                            <li><span>Item</span></li>
-                            <li><span>Product Name</span></li>
-                            <li><span>Unit Price</span></li>
-                            <li><span>Delivery Details</span></li>
+                            <li><span>Resim</span></li>
+                            <li><span>Kitap Adı</span></li>
+                            <li><span>Kitap Fiyatı</span></li>
+                            <li><span>Sepetteki Kitap Sayısı: {{App\Helper\sepetHelper::countData()}}</span></li>
                             <li></li>
                             <div class="clearfix"></div>
 
                         </ul>
 
-                    @foreach([\App\Helper\sepetHelper::allList()] as $key => $value)
+                    @foreach(\App\Helper\sepetHelper::allList() as $key => $value)
                             <ul class="cart-header">
-                                <div class="close1"></div>
+                                    <a href="{{route('basket.remove',['id'=>$key])}}">
+                                        <div class="close1">
+                                        </div>
+                                    </a>
                                 <li class="ring-in">
-                                    <img src="" alt="" />
+                                    <img style="width: 150px; height: 150px;" src="{{$value['image']}}" alt="" />
                                 </li>
-                                <li><span class="name">{{dd($value('name'))}}</span></li>
-                                <li><span class="cost">$ 290.00</span></li>
-                                <li><span>Free</span>
-                                    <p>Delivered in 2-3 business days</p></li>
+                                <li><span class="name">{{($value['name'])}}</span></li>
+                                <li><span class="cost">{{($value['fiyat'])}} TL</span></li>
+
                                 <div class="clearfix"></div>
                             </ul>
                         @endforeach
                     </div>
                 </div>
-                <a></a>
-
+                <a href="{{route('basket.complete')}}">
+                    <button class="btn btn-success">Alışverişi Tamamla</button>
+                </a>
             </div>
         </div>
     </div>

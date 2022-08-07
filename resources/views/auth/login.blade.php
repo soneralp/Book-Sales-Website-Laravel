@@ -31,14 +31,15 @@
                         <form method="POST" action="{{ route('login') }}">
 
                             @csrf
+                            @error('email')
+                            <div class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                            @enderror
 
                             <div>
                                 <input name="email" value="{{ old('email') }}" placeholder="Email" type="text" tabindex="3" required>
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
+
                             </div>
 
 

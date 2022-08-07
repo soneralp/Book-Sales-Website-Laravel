@@ -7,7 +7,7 @@ use App\Http\Controllers\front\basket\indexController;
 
 class sepetHelper{
 
-    static function add($id,$name,$image,$fiyat){
+    static function add($id,$fiyat,$image,$name){
         $sepet = Session::get('basket');
 
         $array = [
@@ -21,18 +21,28 @@ class sepetHelper{
     }
 
 
+    static function countData(){
+        return count(sepetHelper::allList());
+    }
+
     static function allList(){
-        $x = Session::get('basket.');
+        $x = Session::get('basket');
         return $x;
     }
 
 
     static function  totalPrice(){
 
-        $data =  self::allList();
-        return collect($data)->sum('fiyat');
+     $data = self::allList();
+      return collect($data)->sum('fiyat');
+
     }
 
+    static function remove($id)
+    {
+        $s = Session::get('basket');
+        Session::forget('basket.'.$id);
+    }
 
 
 

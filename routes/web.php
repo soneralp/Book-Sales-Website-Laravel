@@ -24,38 +24,11 @@ Route::get('/kategori/{selflink}',[App\Http\Controllers\front\cat\indexControlle
 Route::get('/kitap/detay/{selflink}',[App\Http\Controllers\front\kitap\indexController::class, 'snr'])->name('kitap.detay');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/basket',[App\Http\Controllers\front\basket\indexController::class, 'index'])->name('basket.index');
 Route::get('basket/add/{id}',[App\Http\Controllers\front\basket\indexController::class, 'add'])->name('basket.add');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/basket/remove/{id}',[App\Http\Controllers\front\basket\indexController::class, 'remove'])->name('basket.remove');
+Route::get('/basket/complete',[App\Http\Controllers\front\basket\indexController::class, 'complete'])->name('basket.complete')->middleware('auth');
+Route::post('/basket/complete',[App\Http\Controllers\front\basket\indexController::class, 'completeStore'])->name('basket.completeStore');
 
 
 
